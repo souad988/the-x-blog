@@ -57,6 +57,8 @@
 
 - **[Add associations to models]**
 - **[Set up database]**
+- **[Add validations to models]**
+- **[Add tests to all models and validations]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
