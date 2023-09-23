@@ -77,63 +77,40 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+  rails -v 7.0.6
+  postgresql
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
-```sh
   cd my-folder
   git clone git@github.com:souad988/x-blog.git
-```
---->
+
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
-```sh
   cd x-blog
-  gem install
-```
---->
+  bundle install (install all dependencies)
+  Configure config/database.yml Update the username and password fields if your PostgreSQL installation requires authentication
+  rails db:create
+  rails db:migrate
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
+  rails console 
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
-```sh
   bin/rails test test/models/post_test.rb
-```
---->
+
 
 ### Deployment
 
@@ -145,8 +122,6 @@ coming soon
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Author1**
 
 - GitHub: [@githubhandle](https://github.com/souad988)
@@ -157,8 +132,6 @@ coming soon
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[Sign up a user]**
 - [ ] **[Add Comments]**
