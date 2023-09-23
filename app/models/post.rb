@@ -3,6 +3,11 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  attribute :title, :string
+  attribute :text, :text
+  attribute :comments_counter, :integer, default: 0
+  attribute :likes_counter, :integer, default: 0
+
   after_save :update_user_posts_counter
 
   def update_user_posts_counter

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_23_073716) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_110921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_073716) do
     t.string "title"
     t.text "text"
     t.bigint "author_id", null: false
-    t.integer "comment_counter"
+    t.integer "comments_counter"
     t.integer "likes_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
