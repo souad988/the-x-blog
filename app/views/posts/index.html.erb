@@ -1,0 +1,15 @@
+
+<h1>Posts by <%= @user.name %></h1>
+<p>flag <% @foundflag %></p>
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <strong><%= post.title %></strong><br>
+        <%= post.text %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts available for <%= @user.name %>.</p>
+<% end %>
