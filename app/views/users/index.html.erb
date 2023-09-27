@@ -1,0 +1,13 @@
+<h1>Users list</h1>
+
+<% if @users.any? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <strong><%= user.name %></strong><br>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No users created yet !!</p>
+<% end %>

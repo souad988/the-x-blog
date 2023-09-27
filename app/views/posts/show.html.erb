@@ -1,0 +1,8 @@
+<% if @post.present? %>
+  
+        <strong><%= @post.title %></strong><br>
+        <%= @post.text %>
+
+<% else %>
+  <p>Post not found</p>
+<% end %>
