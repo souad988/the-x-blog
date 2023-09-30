@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+.center_with_margin {
+  width: 90%;
+  margin: auto;
+}
+
+.flex_horizontal {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.display_flex {
+  display: flex;
+  align-items: center;
+}
+
+.post_header {
+  width: 100%;
+}
+
+.post_title {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
