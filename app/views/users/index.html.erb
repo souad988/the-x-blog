@@ -4,7 +4,7 @@
   <ul>
     <% @users.each do |user| %>
       <li>
-        <strong><%= user.name %></strong><br>
+      <%= render 'shared/user_card', user: user %>
       </li>
     <% end %>
   </ul>

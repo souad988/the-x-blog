@@ -1,0 +1,8 @@
+<div class='display_flex center_with_margin'>
+<img src=<%= user.photo %> alt='user photo' />
+<div class='flex_horizontal  post_header'>
+<%= link_to user_path(user) do %>  
+  <strong><%= user.name %></strong><% end %>
+<span>posts count: <strong><%= user.posts_counter %></strong></span>
+</div>
+</div>

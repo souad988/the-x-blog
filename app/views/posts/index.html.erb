@@ -1,12 +1,12 @@
 
-<h1>Posts by <%= @user.name %></h1>
+<%= render 'shared/user_card', user: @user %>
 
 <% if @posts.any? %>
   <ul>
     <% @posts.each do |post| %>
       <li>
-        <strong><%= post.title %></strong><br>
-        <%= post.text %>
+      <%= render 'shared/post_card', post: post %>
+      <%= render 'shared/comments_wrapper', comments: post.recent_comments %>
       </li>
     <% end %>
   </ul>
