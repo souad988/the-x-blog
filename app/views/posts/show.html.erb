@@ -13,7 +13,17 @@
 </div>
 <p><%= @post.text %></p>
 
+<%= form_for(@post.likes.new, url: user_post_likes_path(@post.author, @post)) do |f| %>
+  <%= f.hidden_field :author_id, value: @current_user.id %>
+  <%= f.submit @liked ? "Dislike" : "Like", class: @liked ? 'liked-button' : 'not-liked-button' %>
+
+<% end %><br>
+
 <hr />
+
+<%= render partial: 'comment_form', locals: { comment: Comment.new, user: @current_user, post: @post } %>
+
 <% if @post.comments.any? %>
 <%= render 'shared/comments_wrapper', comments: @post.comments %>
 <%end%>
+

@@ -9,6 +9,7 @@
       </li>
     <% end %>
     <%= link_to "See all posts", user_posts_path(@user) if @user.posts_counter > 0 %>
+    <%= link_to "Add a new post", new_user_post_url(@user) %>
   </ul>
 <% else %>
   <p>No posts created by this user yet !!</p>
