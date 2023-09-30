@@ -1,0 +1,8 @@
+<div class="comments-wrapper">
+      <% comments.each do |comment| %>
+        <div class="comment-card">
+          <strong><%= comment.author.name %>:</strong>
+          <%= comment.text %>
+        </div>
+      <% end %>
+    </div>

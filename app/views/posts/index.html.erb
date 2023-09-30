@@ -1,0 +1,15 @@
+
+<%= render 'shared/user_card', user: @user %>
+
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+      <%= render 'shared/post_card', post: post %>
+      <%= render 'shared/comments_wrapper', comments: post.recent_comments %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts available for <%= @user.name %>.</p>
+<% end %>
