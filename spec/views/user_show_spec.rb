@@ -37,7 +37,7 @@ RSpec.feature 'User Show Page', type: :feature do
 
     # Click on a user's post and verify redirection
     click_link 'Post 1'
-    expect(page).to have_current_path(user_post_path(user,user.posts.first))
+    expect(page).to have_current_path(user_post_path(user, user.posts.first))
 
     # Click to see all posts and verify redirection
     visit user_path(user)

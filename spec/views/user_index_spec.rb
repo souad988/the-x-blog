@@ -1,5 +1,3 @@
-# spec/features/user_index_spec.rb
-
 require 'rails_helper'
 
 RSpec.feature 'User Index Page', type: :feature do
@@ -35,8 +33,7 @@ RSpec.feature 'User Index Page', type: :feature do
     expect(page).to have_current_path(user_path(user2))
   end
 
-  scenario 'Count number of posts for each user' do 
-    
+  scenario 'Count number of posts for each user' do
     # Create some sample users
     user1
     user2
