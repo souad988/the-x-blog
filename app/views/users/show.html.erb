@@ -5,7 +5,7 @@
   <ul>
     <% @user.recent_posts.each do |post| %>
       <li>
-      <%= render 'shared/post_card', post: post %>
+      <%= render 'shared/post_card', post: post, user: @user%>
       </li>
     <% end %>
     <%= link_to "See all posts", user_posts_path(@user) if @user.posts_counter > 0 %>
