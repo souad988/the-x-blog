@@ -1,5 +1,20 @@
 require 'rails_helper'
 
+def run_test(text, value)
+  scenario text do
+    expect(page).to have_content(value)
+  end
+end
+user_post_show_page_scenarios =
+  {
+    'displays the post title' => 'Test Post',
+    'displays who wrote the post' => 'by Test User',
+    'displays how many comments the post has' => 'Comments:5',
+    'displays how many likes the post has' => 'Likes:10',
+    'displays the post body' => 'This is a test post',
+    'displays the username of each commentor' => 'Test User:'
+  }
+
 RSpec.feature 'Post Show Page', type: :feature do
   let(:user) { User.create(name: 'Test User', photo: 'user.jpg') }
   let(:post) { Post.create(author: user, title: 'Test Post', text: 'This is a test post') }
@@ -17,28 +32,12 @@ RSpec.feature 'Post Show Page', type: :feature do
 
     visit user_post_path(user, post)
   end
-
-  scenario 'displays the post title' do
-    expect(page).to have_content('Test Post')
+  user_post_show_page_scenarios.each do |scenario, expected_value|
+    run_test(scenario, expected_value)
   end
-
-  scenario 'displays who wrote the post' do
-    expect(page).to have_content('by Test User')
-  end
-
-  scenario 'displays how many comments the post has' do
-    expect(page).to have_content('Comments:5')
-  end
-
-  scenario 'displays how many likes the post has' do
-    expect(page).to have_content('Likes:10')
-  end
-
-  scenario 'displays the post body' do
-    expect(page).to have_content('This is a test post')
-  end
-
-  scenario 'displays the username of each commentor' do
-    expect(page).to have_content('Test User:', count: 5)
+  scenario 'check each comments content for user post' do
+    (1..5).each do |i|
+      expect(page).to have_content("Comment #{i} for Test Post")
+    end
   end
 end

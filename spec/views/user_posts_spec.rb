@@ -1,5 +1,5 @@
 require 'rails_helper'
-def runTest(text, value)
+def run_test(text, value)
   scenario text do
     expect(page).to have_content(value)
   end
@@ -13,7 +13,7 @@ map = {
   'I can see the first comments on a post' => 'Comment 1',
   'I can see how many comments a post has' => 'comments: 5',
   'I can see how many likes a post has' => 'likes: 10',
-  'I can see a section for pagination if there are more posts than fit on the view' => 'Previous',
+  'I can see a section for pagination if there are more posts than fit on the view' => 'Previous'
 
 }
 
@@ -34,18 +34,16 @@ RSpec.feature 'User Post Index Page', type: :feature do
   end
 
   map.each do |scenario, expected_value|
-    runTest(scenario, expected_value)
-   end
+    run_test(scenario, expected_value)
+  end
 
-   scenario 'displays the user\'s profile picture  and the user\'s username' do
-   
+  scenario 'displays the user\'s profile picture  and the user\'s username' do
     expect(page).to have_css("img[src*='user.jpg']")
     expect(page).to have_content('Test User')
   end
- 
+
   scenario 'redirects to the post\'s show page when clicked' do
     click_link 'Post 2'
-    expect(page).to have_current_path(user_post_path(user,user.posts.where(:title => 'Post 2')[0]))
+    expect(page).to have_current_path(user_post_path(user, user.posts.where(title: 'Post 2')[0]))
   end
-  
 end
