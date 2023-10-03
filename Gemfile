@@ -76,3 +76,5 @@ group :test do
 end
 
 gem 'faker'
+
+gem 'will_paginate'

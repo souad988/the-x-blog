@@ -5,10 +5,10 @@ class PostsController < ApplicationController
 
       @user = User.find(params[:user_id])
       # @posts = @user.posts
-      @posts = Post.includes(:author).where(author: params[:user_id])
+      @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 3)
     else
       # List all posts
-      @posts = Post.all
+      @posts = Post.paginate(page: params[:page], per_page: 3)
     end
   end
 
