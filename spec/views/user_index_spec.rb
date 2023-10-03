@@ -19,10 +19,6 @@ RSpec.feature 'User Index Page', type: :feature do
     expect(page).to have_css("img[src*='user1.jpg']")
     expect(page).to have_css("img[src*='user2.jpg']")
 
-    # Verify that the number of posts each user has written is displayed
-    # expect(page).to have_content('User 1 has written 0 posts.')
-    # expect(page).to have_content('User 2 has written 0 posts.')
-
     # Click on a user and verify redirection
     click_link 'User 1'
     expect(page).to have_current_path(user_path(user1))
