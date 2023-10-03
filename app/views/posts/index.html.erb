@@ -6,10 +6,13 @@
     <% @posts.each do |post| %>
       <li>
       <%= render 'shared/post_card', post: post %>
-      <%= render 'shared/comments_wrapper', comments: post.recent_comments %>
+      <%= render 'shared/comments_wrapper', comments: post.comments %>
       </li>
     <% end %>
   </ul>
+  <div class="pagination">
+  <%= will_paginate @posts %>
+</div>
 <% else %>
   <p>No posts available for <%= @user.name %>.</p>
 <% end %>
