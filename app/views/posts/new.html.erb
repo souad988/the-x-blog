@@ -1,3 +1,4 @@
+<div class= "container">
 <%= form_with model: post, url: user_posts_path,method: :post, local: true, scope: :post do |f| %>
 <div>
   <%= f.label :title %><br>
@@ -12,3 +13,4 @@
 <%= f.submit "Add post" %>
 
 <% end %>
+</div>

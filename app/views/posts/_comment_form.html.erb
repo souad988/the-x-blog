@@ -1,4 +1,8 @@
 <%= form_with model: comment, url: user_post_comments_path(user, post), method: :post , local: true ,class: 'form' do |f| %>
+    <div class='field'>
     <%= f.text_area :text %>
+    </div>
+    <div class='field'>
     <%= f.submit "Comment" %>
+    </div>
   <% end %>

@@ -1,4 +1,5 @@
-<div class='flex_horizontal'>
+<div class= "container">
+<div class='flex_horizontal full_width'>
   <div class='flex_horizontal'> 
   <h1 class= 'post_title'><%= @post.title %></h1>
   by
@@ -10,23 +11,32 @@
     <span> Comments:<%= @post.comments_counter%>, </span>
     <span> Likes:<%= @post.likes_counter%></span>  
   </div>
-  <% if can?(:delete, @post, @post.author) %>
-  <%= link_to 'Delete', user_post_path(@user, @post), class: 'delete-link', data: { turbo_method: :delete } %>
-<% end %>
+
 </div>
-<p><%= @post.text %></p>
+
+
+<div>
+<% if can?(:delete, @post) %>
+    <%= link_to 'Delete', user_post_path(@user, @post), data: { turbo_method: :delete } %>
+  <% end %>
+<p>
+<%= @post.text %>
+</p>
 
 <%= form_for(@post.likes.new, url: user_post_likes_path(@post.author, @post)) do |f| %>
   <%= f.hidden_field :author_id, value: @current_user.id %>
   <%= f.submit @liked ? "Dislike" : "Like", class: @liked ? 'liked-button' : 'not-liked-button' %>
+<% end %>
 
-<% end %><br>
+</div>
+
 
 <hr />
-
+</div>
+<div class='container'>
 <%= render partial: 'comment_form', locals: { comment: Comment.new, user: @current_user, post: @post } %>
 
 <% if @post.comments.any? %>
 <%= render 'shared/comments_wrapper', comments: @post.comments, user: @user, post: @post%>
 <%end%>
-
+</div>

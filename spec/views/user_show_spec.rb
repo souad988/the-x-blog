@@ -23,7 +23,7 @@ RSpec.feature 'User Show Page', type: :feature do
     visit user_path(user)
   end
 
-  map.each do |scenario, expected_value|
+  user_show_page_scenarios.each do |scenario, expected_value|
     run_test(scenario, expected_value)
   end
 
