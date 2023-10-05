@@ -3,6 +3,10 @@
         <div class="comment-card">
           <strong><%= comment.author.name %>:</strong>
           <%= comment.text %>
+          <% if can?(:delete, @post) %>
+<%= link_to 'Delete', user_post_comment_path(@user, @post, comment), class: 'delete-link', data: { turbo_method: :delete } %>
+<% end %>  </p>
+    <%end%>
         </div>
       <% end %>
 </div>

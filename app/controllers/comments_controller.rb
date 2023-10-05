@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :set_user
+  before_action :set_post
+  before_action :set_comment, only: %i[destroy]
+
   def index; end
 
   def new
@@ -30,7 +34,33 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize! :delete, @comment
+    if @comment.destroy
+      flash[:notice] = 'Comment was successfully deleted.'
+    else
+      flash[:alert] = 'Failed to delete comment.'
+    end
+    redirect_to user_post_path(@user, @post)
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
+
+  def set_comment
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
 
   def post_params
     params.require(:post).permit(:text, :text) # Adjust as needed for your form fields

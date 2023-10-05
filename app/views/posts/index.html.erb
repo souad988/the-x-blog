@@ -6,7 +6,7 @@
     <% @posts.each do |post| %>
       <li>
       <%= render 'shared/post_card', post: post %>
-      <%= render 'shared/comments_wrapper', comments: post.comments %>
+      <%= render 'shared/comments_wrapper', comments: post.comments, post: post, user: @user %>
       </li>
     <% end %>
   </ul>

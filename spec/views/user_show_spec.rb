@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 def run_test(text, value)
-    scenario text do
-      expect(page).to have_content(value)
-    end
+  scenario text do
+    expect(page).to have_content(value)
   end
+end
 user_show_page_scenarios = {
   'displays the user\'s profile picture' => "img[src*='user.jpg']",
   'displays the user\'s username' => 'User Name',
@@ -19,13 +19,13 @@ RSpec.feature 'User Show Page', type: :feature do
     user.posts.create(title: 'Post 1', text: 'Post 1 Text')
     user.posts.create(title: 'Post 2', text: 'Post 2 Text')
     user.posts.create(title: 'Post 3', text: 'Post 3 Text')
-      # Visit the user's page once to reduce repetition
+    # Visit the user's page once to reduce repetition
     visit user_path(user)
   end
 
   map.each do |scenario, expected_value|
     run_test(scenario, expected_value)
-   end
+  end
 
   scenario 'displays the first 3 posts' do
     expect(page).to have_content('Post 1')

@@ -27,6 +27,6 @@
 <%= render partial: 'comment_form', locals: { comment: Comment.new, user: @current_user, post: @post } %>
 
 <% if @post.comments.any? %>
-<%= render 'shared/comments_wrapper', comments: @post.comments %>
+<%= render 'shared/comments_wrapper', comments: @post.comments, user: @user, post: @post%>
 <%end%>
 
