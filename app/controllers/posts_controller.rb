@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_user
+  before_action :set_post, only: %i[show destroy]
   def index
     if params[:user_id].present?
       # List posts of a specific user
@@ -38,8 +40,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = params[:post]
-    @user = params[:user]
     if @post.destroy
       flash[:notice] = 'Post was successfully deleted.'
     else
@@ -53,5 +53,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text) # Adjust as needed for your form fields
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_post
+    @post = @user.posts.includes(:comments).find_by(id: params[:id])
   end
 end

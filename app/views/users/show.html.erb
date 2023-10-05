@@ -13,5 +13,6 @@
   </ul>
 <% else %>
   <p>No posts created by this user yet !!</p>
+  <%= link_to "Add a new post", new_user_post_url(@user) %>
 <% end %>
 
