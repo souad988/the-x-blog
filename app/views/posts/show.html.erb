@@ -10,6 +10,9 @@
     <span> Comments:<%= @post.comments_counter%>, </span>
     <span> Likes:<%= @post.likes_counter%></span>  
   </div>
+  <% if can?(:delete, @post) %>
+  <%= link_to 'Delete', user_post_path(@user, @post), class: 'delete-link', data: { turbo_method: :delete } %>
+<% end %>
 </div>
 <p><%= @post.text %></p>
 

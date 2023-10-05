@@ -37,6 +37,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = params[:post]
+    @user = params[:user]
+    if @post.destroy
+      flash[:notice] = 'Post was successfully deleted.'
+    else
+      flash[:alert] = 'Failed to delete Post.'
+    end
+
+    redirect_to user_posts_path(@user)
+  end
+
   private
 
   def post_params
