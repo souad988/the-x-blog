@@ -1,16 +1,21 @@
+<div class= "container">
 <%= render 'shared/user_card', user: @user %>
 <h3>Bio</h3>
 <p><%= @user.bio %></p>
 <% if @user.recent_posts.any? %>
-  <ul>
+  <ul class='full_width'>
     <% @user.recent_posts.each do |post| %>
       <li>
-      <%= render 'shared/post_card', post: post %>
+      <%= render 'shared/post_card', post: post, user: @user%>
       </li>
     <% end %>
+    <div>
     <%= link_to "See all posts", user_posts_path(@user) if @user.posts_counter > 0 %>
+    <%= link_to "Add a new post", new_user_post_url(@user) %>
+    </div>
   </ul>
 <% else %>
   <p>No posts created by this user yet !!</p>
+  <%= link_to "Add a new post", new_user_post_url(@user) %>
 <% end %>
-
+</div>

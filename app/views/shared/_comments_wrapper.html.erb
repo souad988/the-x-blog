@@ -1,8 +1,13 @@
-<div class="comments-wrapper">
+<div class="comments-wrapper full_width">
       <% comments.each do |comment| %>
-        <div class="comment-card">
+       
           <strong><%= comment.author.name %>:</strong>
           <%= comment.text %>
-        </div>
+          
+          <% if can?(:delete, comment) %>
+          <%= link_to 'Delete', user_post_comment_path(@user, @post, comment), class: 'delete-link', data: { turbo_method: :delete } %>
+          <% end %>  
+
+    
       <% end %>
-    </div>
+</div>

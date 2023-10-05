@@ -62,13 +62,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
--Coming soon
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -128,6 +121,10 @@ coming soon
 
 - GitHub: [@githubhandle](https://github.com/souad988)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/souad-el-mansouri/)
+
+👤 **Author1**
+- GitHub: [@migo1](https://github.com/migo1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/robertmigot/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
