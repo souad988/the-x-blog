@@ -78,3 +78,5 @@ end
 gem 'faker'
 
 gem 'will_paginate'
+
+gem 'devise', '~> 4.9'
